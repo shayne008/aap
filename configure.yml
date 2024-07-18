@@ -1,6 +1,6 @@
 ---
 - name: Configure Fedora Servers
-  hosts: fedora
+  hosts: servers
   become: true 
   tasks:
     - name: Install System Updates
