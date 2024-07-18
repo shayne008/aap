@@ -1,0 +1,30 @@
+---
+- name: Configure Fedora Servers
+  hosts: fedora
+  become: true 
+  tasks:
+    - name: Install System Updates
+      ansible.builtin.dnf:
+         name: "*"
+         state: latest
+
+    - name: Install these packages
+      ansible.builtin.dnf:
+        name:
+           - podman
+           - tmux
+           - vim 
+           - tmux
+           - httpd
+           - nginx
+           - bash-completion
+           - wget
+           - curl
+        state: present 
+    - name: Enable services
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
+        
+           
