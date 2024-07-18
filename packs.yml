@@ -1,0 +1,18 @@
+---
+- name: Configure Servers
+  hosts: all
+  become: true 
+  tasks:
+    - name: Install these packages
+      ansible.builtin.dnf:
+        name:
+           - podman
+           - tmux
+           - vim 
+           - tmux
+           - httpd
+           - nginx
+           - bash-completion
+           - wget
+           - curl
+        state: present 
